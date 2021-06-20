@@ -4,7 +4,7 @@ import Movie from "./components/Movie";
 function App() {
   return (
     <div className="App">
-      <h1>My Favorite Movies</h1>
+      <h1>My Super-Movies</h1>
       <Movie />
     </div>
   );

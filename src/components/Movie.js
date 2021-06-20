@@ -47,22 +47,33 @@ class MovieCard extends Component {
       isSorted: !this.state.isSorted,
     });
   };
+  handleSearch = e => {
+    e.preventDefault();
+    let value = e.target.value.toLowerCase();
+    console.log(value);
+  };
   render() {
     return (
       <main>
+         <input
+          id="search"
+          type="text"
+          onChange={this.handleSearch}
+          placeholder="Search for a movie.."
+        />
         <div className="button-wrapper">
           <Sort
-            sortZ_A={this.handleSortZtoA}
-            sortA_Z={this.handleSortAtoZ}
+            sortZtoA={this.handleSortZtoA}
+            sortAtoZ={this.handleSortAtoZ}
             sortRate={this.handleSortRate}
             sortDescend={this.handleSortDescend}
             sortAscend={this.handleSortAscend}
           />
         </div>
         <div className="wrapper">
-          {this.state.movieArr.map((movie, i) =>
+          {this.state.movieArr.map((movie, key) =>
             <div className="movieCard">
-              <div key={i} className="card__text">
+              <div key={key} className="card__text">
                 <h1>
                   {movie.title}
                 </h1>
